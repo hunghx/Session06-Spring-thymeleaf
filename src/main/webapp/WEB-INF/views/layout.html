@@ -6,14 +6,11 @@
 </head>
 <body>
 
-<header th:fragment="head">
+<div id="nav" th:fragment="nav(name)">
     <h1>Đây là header</h1>
 <!--    đổ ra bien   -->
-    <ul>
-        <li th:text="${a}"></li>
-<!--        <li th:text="${b}"></li>-->
-    </ul>
-</header>
+    <span th:text="${name}"></span>
+</div>
 
 <footer th:fragment="foot">
     <h1>Đây laf footer</h1>

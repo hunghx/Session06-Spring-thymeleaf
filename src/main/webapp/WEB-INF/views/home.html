@@ -5,8 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<div th:insert="layout :: head"></div>
 <h1>Hello</h1>
+<div th:insert="~{layout :: nav(${name})}"></div>
+<!--<div th:insert="~{list :: nav ('hung')}"></div>-->
 <!--hiển thị  văn bản tại 1 thẻ-->
 <p th:text="${name}"></p>
 <h2 th:text="${age}"></h2>
