@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello</h1>
+<!--hiển thị  văn bản tại 1 thẻ-->
+<p th:text="${name}"></p>
+<h2 th:text="${age}"></h2>
+<p th:text="${name+' - tuổi : '+age}"></p>
+<p th:text="|tên tôi là ${name}, năm nay tôi ${age} tuổi|"></p>
+<!-- hiển thị thông diệp-->
+<h3 th:text="#{message.title}"></h3>
+<p th:text="#{message.content}"></p>
+<!--thao tác với thuộc tính của object-->
+<ul th:object="${student}" >
+    <li th:text="*{id}"></li>
+    <li th:text="*{name}"></li>
+    <li th:text="*{age}"></li>
+</ul>
+<!--hiển thi đường dẫn-->
+<a href="/create">Add</a>
+<!-- /edit?id=1   -->
+<a th:href="@{/edit(id=${student.id})}">edit</a>
+<!-- /1/edit/1  -->
+<a th:href="@{/{id}/edit/{id}(id=${student.id})}">edit</a>
+
+
+</body>
+</html>
