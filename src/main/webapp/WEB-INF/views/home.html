@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<div th:insert="layout :: head"></div>
 <h1>Hello</h1>
 <!--hiển thị  văn bản tại 1 thẻ-->
 <p th:text="${name}"></p>
@@ -26,7 +27,24 @@
 <a th:href="@{/edit(id=${student.id})}">edit</a>
 <!-- /1/edit/1  -->
 <a th:href="@{/{id}/edit/{id}(id=${student.id})}">edit</a>
+<!--for each-->
+<th:block th:each="num,loop : ${array}">
+    <li th:text="${num+'-'+loop.index}"></li>
+</th:block>
 
+<!--cú pháp điều kiện -->
+<div th:if="${name.length()>5}">Tên có độ dài >5</div>
+<div th:unless="${name.length()>5}">Tên có độ dài <= 5</div>
+<!-- swith case  -->
+<div th:switch="${name}">
+    <div th:case="hung">độ dài là 1</div>
+    <div th:case="nam">độ dài là 2</div>
+    <div th:case="khanh">độ dài là 3</div>
+    <div th:case="son">độ dài là 4</div>
+    <div th:case="*">độ dài khác</div>
+</div>
+<!-- chia code thành các đoạn -->
 
+<footer th:insert="~{layout::foot}"></footer>
 </body>
 </html>
